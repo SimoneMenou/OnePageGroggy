@@ -57,6 +57,329 @@ header .nav-list li a {
   font-weight: bold;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #39ff14;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(99.970212766, 255, 71);
+}
+
+:root {
+  --marquee-duration: 22s; /* vitesse du défilement */
+}
+
+/* Base du footer */
+footer {
+  position: fixed; /* reste collé en bas */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #121214;
+  color: #fff;
+  padding: 8px 0;
+}
+
+.section-about {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2.5rem;
+}
+
+.section-videos {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.section-videos h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.videos-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+/* Grille responsive */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* === Base mobile (par défaut) === */
+.section-videos {
+  padding: 2rem 1rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.section-videos h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.videos-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Grille vidéo */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 colonne sur mobile */
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* Carte vidéo */
+.video-card {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.video-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Miniature vidéo */
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.video-card:hover .video-thumbnail {
+  transform: scale(1.03);
+  filter: brightness(0.8);
+}
+
+/* Overlay (effet sombre + icône) */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.video-card:hover .video-overlay {
+  opacity: 1;
+}
+
+/* Icône lecture dans overlay */
+.video-overlay::after {
+  content: "▶";
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/* Titre vidéo */
+.video-title {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+/* === Tablettes (>= 600px) === */
+@media (min-width: 600px) {
+  .section-videos {
+    padding: 3rem 2rem;
+  }
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .video-title {
+    font-size: 1rem;
+  }
+}
+/* === Desktop (>= 992px) === */
+@media (min-width: 992px) {
+  .section-videos {
+    padding: 4rem 3rem;
+  }
+  .section-videos h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .videos-description {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .video-thumbnail {
+    max-width: none;
+  }
+  .video-overlay::after {
+    font-size: 3rem;
+  }
+}
+/* Grille responsive des partenaires */
+.partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.partner:hover {
+  transform: translateY(-5px);
+  opacity: 0.9;
+}
+
+.partner-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 0.8rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-about h2 {
+    font-size: 1.6rem;
+  }
+  .about-description {
+    font-size: 1rem;
+  }
+  .partner-logo {
+    width: 100px;
+  }
+}
+@media (max-width: 480px) {
+  .partners {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .partner p {
+    font-size: 0.85rem;
+  }
+}
+/* Conteneur du texte défilant */
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Bande animée */
+.marquee__track {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee var(--marquee-duration) linear infinite;
+}
+
+/* Élément individuel */
+.marquee__item {
+  flex: 0 0 auto;
+  padding: 0 0.25rem;
+  font-size: 0.95rem;
+  color: #e6f7f3;
+}
+
+.marquee__item {
+  display: inline-flex; /* aligne le texte et l'image sur la même ligne */
+  align-items: center; /* centre verticalement l'image par rapport au texte */
+  gap: 10px; /* espace entre le texte et l'image */
+  white-space: nowrap; /* empêche le retour à la ligne */
+}
+
+.footer_img {
+  height: 30px; /* ajuste la taille selon tes besoins */
+  width: auto;
+}
+
+/* Animation du défilement */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Pause au survol */
+.marquee__track:hover,
+.marquee__track:focus-within {
+  animation-play-state: paused;
+}
+
+/* Respect des préférences d’accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .marquee__item {
+    font-size: 0.8rem;
+  }
+}
 /* Section Cover */
 #cover {
   height: 100vh; /* Prend toute la hauteur de la page */
@@ -90,9 +413,50 @@ header .nav-list li a {
   color: #fff;
 }
 
+/* CSS pour le cover */
+.fullscreen-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("./assets/cover.gif"); /* ton GIF ici */
+  background-size: cover; /* remplit toute la section */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* texte visible sur le GIF */
+  text-align: center;
+}
+
 .cover-title h1 {
-  font-size: 4rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour mieux lire le texte */
+  font-size: 4rem; /* adapte selon ton design */
+  z-index: 2; /* assure que le texte reste au-dessus */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* pour lisibilité */
+}
+
+/* Effet typographique incrusté */
+#cover .cover-title h1 {
+  font-size: 20rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: transparent;
+  background: url("./assets/COVER1.jpg") center/cover no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  mix-blend-mode: overlay; /* change avec 'screen', 'difference', 'lighten' pour tester */
+  filter: brightness(130%);
+  opacity: 0.9;
+}
+
+/* Option : effet de calque subtil derrière le texte */
+#cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 1;
 }
 
 /* Sections suivantes */
@@ -200,7 +564,7 @@ header .nav-list li a {
 }
 #ep .ep-item .ep-image img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -229,56 +593,9 @@ header .nav-list li a {
     grid-template-columns: 1fr;
   }
   #ep .ep-item .ep-image img {
-    height: 150px;
+    height: 250px;
   }
 }
-#gallery {
-  background: #fff;
-  padding: 6rem 2rem;
-  text-align: center;
-}
-#gallery h2 {
-  font-family: "Georgia", serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
-  color: #000;
-}
-#gallery .gallery-carousel {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid #808080;
-}
-#gallery .carousel-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 2rem;
-}
-#gallery .carousel-item {
-  flex: 0 0 300px;
-  margin-right: 2rem;
-  scroll-snap-align: start;
-  background: #fff;
-  border: 1px solid #808080;
-  border-radius: 10px;
-  overflow: hidden;
-}
-#gallery .carousel-item img {
-  width: 100%;
-  height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-#gallery .carousel-item figcaption {
-  padding: 1rem;
-  font-size: 1rem;
-  color: #000;
-  text-align: center;
-}
-
 @media (max-width: 768px) {
   #gallery {
     padding: 4rem 1rem;
