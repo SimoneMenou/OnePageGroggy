@@ -459,6 +459,39 @@ footer {
   z-index: 1;
 }
 
+.img-intro {
+  width: 100%; /* l'image prend toute la largeur du conteneur */
+  max-width: 600px; /* limite la taille sur grand écran */
+  height: auto; /* conserve les proportions */
+  display: block; /* pour pouvoir centrer */
+  margin: 1.5rem auto; /* centre l'image horizontalement et ajoute un peu d'espace vertical */
+  border-radius: 10px; /* optionnel : coins arrondis pour style */
+}
+
+/* Texte autour */
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  margin: 1rem auto;
+  max-width: 700px; /* limite la largeur pour une lecture confortable */
+}
+
+/* === Responsive tablettes === */
+@media (min-width: 600px) {
+  p {
+    font-size: 1.1rem;
+  }
+}
+/* === Desktop === */
+@media (min-width: 992px) {
+  .img-intro {
+    max-width: 800px;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+}
 /* Sections suivantes */
 .section {
   padding: 4rem 2rem;
